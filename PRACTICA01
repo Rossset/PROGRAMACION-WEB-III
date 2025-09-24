@@ -1,10 +1,11 @@
-
 // === PRACTICA 01 - PROGRAMACION WEB III ===
-// Autor: Rosset
+// Autor: Aracely Rosset Quiñajo Carrizales
+// CI: 9876693
+// RU: 1837875
 // Fecha: 24/09/2025
 
 // =============================
-// 1) Contar vocales
+// 1)
 // =============================
 function contarVocales(texto) {
   const mapa = {};
@@ -23,12 +24,12 @@ function contarVocales(texto) {
 console.log(contarVocales("euforia")); // { e:1, u:1, o:1, i:1, a:1 }
 
 // =============================
-// 2) Invertir cadena y palabras
+// 2)
 // =============================
 function invertirCadena(str) {
   return str.split('').reverse().join('');
 }
-console.log(invertirCadena("abcd")); // "dcba"
+console.log(invertirCadena("abcd")); 
 
 function invertirPalabras(frase) {
   return frase.split(' ').filter(Boolean).reverse().join(' ');
@@ -36,7 +37,7 @@ function invertirPalabras(frase) {
 console.log(invertirPalabras("Hola mundo esto es prueba"));
 
 // =============================
-// 3) Pares e impares
+// 3) 
 // =============================
 function paresEimpares(arr) {
   const result = { pares: [], impares: [] };
@@ -50,7 +51,7 @@ function paresEimpares(arr) {
 console.log(paresEimpares([1,2,3,4,5]));
 
 // =============================
-// 4) Mayor y menor
+// 4) 
 // =============================
 function mayorYmenor(arr) {
   if (!Array.isArray(arr) || arr.length === 0) return { mayor: null, menor: null };
@@ -61,7 +62,7 @@ function mayorYmenor(arr) {
 console.log(mayorYmenor([3,1,5,4,2]));
 
 // =============================
-// 5) Palíndromo
+// 5)
 // =============================
 function esPalindromo(str) {
   if (typeof str !== 'string') return false;
@@ -72,18 +73,18 @@ function esPalindromo(str) {
   const inv = normal.split('').reverse().join('');
   return normal === inv;
 }
-console.log(esPalindromo("oruro")); // true
-console.log(esPalindromo("hola"));  // false
+console.log(esPalindromo("oruro"));
+console.log(esPalindromo("hola"));  
 
 // =============================
-// 6) Desestructuración primeros
+// 6) 
 // =============================
 const arr = [10, 20, 30, 40];
 const [primero, segundo] = arr;
 console.log(primero, segundo);
 
 // =============================
-// 7) Desestructuración resto
+// 7) 
 // =============================
 const arr2 = [1,2,3,4,5];
 const [a, b, ...resto] = arr2;
@@ -91,7 +92,7 @@ console.log(a, b);
 console.log(resto);
 
 // =============================
-// 8) Callback después de 2s
+// 8) 
 // =============================
 function ejecutarDespuesDe2s(callback, ...args) {
   setTimeout(() => {
@@ -101,22 +102,17 @@ function ejecutarDespuesDe2s(callback, ...args) {
 ejecutarDespuesDe2s((msg) => console.log("Callback ejecutado:", msg), "hola");
 
 // =============================
-// 9) Promesa éxito después de 3s
+// 9) 
 // =============================
 function promesaExito3s() {
   return new Promise((resolve) => {
-    setTimeout(() => resolve("¡Éxito después de 3 segundos!"), 3000);
+    setTimeout(() => resolve("¡Exito despues de 3 segundos!"), 3000);
   });
 }
 promesaExito3s().then(msg => console.log(msg));
 
 // =============================
-// 10) Cuándo usar callback/promesa
-// =============================
-// (Explicación en informe)
-
-// =============================
-// 11) Encadenamiento de promesas
+// 11)
 // =============================
 function paso1() { return Promise.resolve(2); }
 function paso2(x) { return Promise.resolve(x * 3); }
@@ -128,7 +124,7 @@ paso1()
   .then(final => console.log("Resultado final:", final));
 
 // =============================
-// 12) Callbacks -> async/await
+// 12)
 // =============================
 function tarea1(cb){ setTimeout(()=> cb(null, 'A'), 300); }
 function tarea2(prev, cb){ setTimeout(()=> cb(null, prev + 'B'), 300); }
@@ -157,7 +153,7 @@ const pTarea3 = prev => new Promise(res => setTimeout(()=> res(prev + 'C'), 300)
 })();
 
 // =============================
-// 13) Promesas -> async/await
+// 13) 
 // =============================
 function sumaAsync(x) { return Promise.resolve(x + 1); }
 
@@ -174,7 +170,7 @@ sumaAsync(1)
 })();
 
 // =============================
-// 14) Promesa -> callback
+// 14)
 // =============================
 function promesaAcallback(promesaFn, callback) {
   promesaFn()
@@ -187,7 +183,7 @@ promesaAcallback(promesaExito3s, (err, res) => {
 });
 
 // =============================
-// 15) Callback -> promesa
+// 15) 
 // =============================
 function promisify(fnConCallback) {
   return function (...args) {
@@ -206,7 +202,7 @@ const duplicarPromesa = promisify(duplicarCallback);
 duplicarPromesa(5).then(res => console.log("duplicarPromesa:", res));
 
 // =============================
-// 16) Migrar promesas a async/await
+// 16) 
 // =============================
 function obtenerYProcesar() {
   return promesaExito3s()
@@ -222,5 +218,5 @@ async function obtenerYprocesarAsync() {
 }
 (async () => {
   const r = await obtenerYprocesarAsync();
-  console.log("después async/await:", r);
+  console.log("despues async/await:", r);
 })();
